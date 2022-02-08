@@ -38,22 +38,22 @@ public class Nav {
     static int[] DDToDMS(double latlon)
     {
         int[] vDms = new int[3];
-        
-        vDms[0] = (int)latlon;
-        latlon = (latlon - vDms[0]) * 60;
-        vDms[1] = (int)latlon;
-        latlon = (latlon - vDms[1]) * 60;
-        vDms[2] = (int)latlon;
-        
+        for(int i = 0;i<3;i++){
+            vDms[i] = (int)latlon;
+            latlon = (latlon - vDms[i]) * 60;
+        }
         return vDms;
     }
     
     /**
-     * 
+     * Gets the Grand Circle distance between two points on a sphere based off of altitude
      */
-    static double getOrthodromicDistance(double[] A, double[] B)
+    static double getOrthodromicDistance(double[] pA, double[] pB, double pAltitude)
     {
-        double vPerimetreTerre = Math.PI * 6371 * 2; //Perimetre en km.
+        double vPerimetreTerre = Math.PI * (6371 + pAltitude) * 2; //Perimetre en km.
+        
+        double vColatA = getColat(pA[0]);
+        double vColatB = getColat(pB[0]);
         
         return 0;
     }
