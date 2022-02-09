@@ -1,6 +1,5 @@
 // file : Nav.java
 public class Nav {
-
     static double toRad(double angle_in_degrees) {
         double angle_in_radians;
         angle_in_radians = angle_in_degrees * Math.PI / 180.;
