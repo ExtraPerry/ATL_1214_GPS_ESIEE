@@ -50,11 +50,6 @@ public class Nav {
      */
     static double getOrthodromicDistance(double[] pA, double[] pB, double pAltitude)
     {
-        double vPerimetreTerre = Math.PI * (6371 + pAltitude) * 2; //Perimetre en km.
-        
-        double vColatA = getColat(pA[0]);
-        double vColatB = getColat(pB[0]);
-        
-        return 0;
+        return (6371 + pAltitude) * (double)(Math.acos(Math.cos(getColat(pA[0]))*Math.cos(getColat(pB[0])) + Math.sin(getColat(pA[0]))*Math.sin(getColat(pB[0]))*Math.cos(Math.toRadians(Math.min((Math.abs(pA[1]-pB[1])),360-(Math.abs((pA[1]-pB[1]))))))));
     }
 }
