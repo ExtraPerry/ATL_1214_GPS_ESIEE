@@ -201,6 +201,6 @@ public class Nav {
         System.out.println("vFirst + vSecond ==> " + (vFirstPart + vSecondPart)  + " km");
         System.out.println("------------------------------------------------------------");
         
-        return vDistances;
+        return vDistances; //RE.
     }
 }
