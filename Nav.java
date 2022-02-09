@@ -121,7 +121,7 @@ public class Nav {
         double[] vTresureIsland = {27.745003,-82.759659};
         double[] vHonolulu = {21.3069444,-157.858333};
         double[] vCanton = {-2.83333,-171.666664};
-        double[] vSuva = {-18.15,178.44};
+        double[] vSuva = {-18.1416,178.441895};
         double[] vAuckland = {-36.8404,174.74};
         double[] vNoumea = {-22.2355,166.47};
         double[] vGladstone = {-23.84852,151.268356};
@@ -136,24 +136,71 @@ public class Nav {
         double[] vPortDeSpain = {10.654901,-61.501926};
         double[] vLaGuardiaNewYork = {40.7769271,-73.8739659};
         
-        double[] vDistances = new double[16];
+        double[] vDistances = new double[17];
         
         vDistances[0] = getOrthodromicDistance(vTresureIsland,vHonolulu,1);
         vDistances[1] = getOrthodromicDistance(vHonolulu,vCanton,1);
         vDistances[2] = getOrthodromicDistance(vCanton,vSuva,1);
-        vDistances[3] = getOrthodromicDistance(vSuva,vAuckland,1);
-        vDistances[4] = getOrthodromicDistance(vAuckland,vNoumea,1);
-        vDistances[5] = getOrthodromicDistance(vNoumea,vGladstone,1);
-        vDistances[6] = getOrthodromicDistance(vGladstone,vDarwin,1);
-        vDistances[7] = getOrthodromicDistance(vDarwin,vSurabay,1);
-        vDistances[8] = getOrthodromicDistance(vSurabay,vTrinquemalay,1);
-        vDistances[9] = getOrthodromicDistance(vTrinquemalay,vKarachi,1);
-        vDistances[10] = getOrthodromicDistance(vKarachi,vBahrain,1);
-        vDistances[11] = getOrthodromicDistance(vBahrain,vKhartoum,1);
-        vDistances[12] = getOrthodromicDistance(vKhartoum,vLepoldville,1);
-        vDistances[13] = getOrthodromicDistance(vLepoldville,vNatal,1);
-        vDistances[14] = getOrthodromicDistance(vNatal,vPortDeSpain,1);
-        vDistances[15] = getOrthodromicDistance(vPortDeSpain,vLaGuardiaNewYork,1);
+        vDistances[3] = getOrthodromicDistance(vSuva,vNoumea,1);
+        vDistances[4] = getOrthodromicDistance(vNoumea,vAuckland,1);
+        vDistances[5] = getOrthodromicDistance(vAuckland,vNoumea,1);
+        vDistances[6] = getOrthodromicDistance(vNoumea,vGladstone,1);
+        vDistances[7] = getOrthodromicDistance(vGladstone,vDarwin,1);
+        vDistances[8] = getOrthodromicDistance(vDarwin,vSurabay,1);
+        vDistances[9] = getOrthodromicDistance(vSurabay,vTrinquemalay,1);
+        vDistances[10] = getOrthodromicDistance(vTrinquemalay,vKarachi,1);
+        vDistances[11] = getOrthodromicDistance(vKarachi,vBahrain,1);
+        vDistances[12] = getOrthodromicDistance(vBahrain,vKhartoum,1);
+        vDistances[13] = getOrthodromicDistance(vKhartoum,vLepoldville,1);
+        vDistances[14] = getOrthodromicDistance(vLepoldville,vNatal,1);
+        vDistances[15] = getOrthodromicDistance(vNatal,vPortDeSpain,1);
+        vDistances[16] = getOrthodromicDistance(vPortDeSpain,vLaGuardiaNewYork,1);
+        
+        System.out.println("vTresureIsland,vHonolulu ==> " + vDistances[0] + " km");
+        System.out.println("vHonolulu,vCanton ==> " + vDistances[1] + " km");
+        System.out.println("vCanton,vSuva ==> " + vDistances[2] + " km");
+        System.out.println("vSuva,vNoumea ==> " + vDistances[3] + " km");
+        System.out.println("vNoumea,vAuckland ==> " + vDistances[4] + " km");
+        System.out.println("vAuckland,vNoumea ==> " + vDistances[5] + " km");
+        System.out.println("vNoumea,vGladstone ==> " + vDistances[6] + " km");
+        System.out.println("vGladstone,vDarwin ==> " + vDistances[7] + " km");
+        System.out.println("vDarwin,vSurabay ==> " + vDistances[8] + " km");
+        System.out.println("vSurabay,vTrinquemalay ==> " + vDistances[9] + " km");
+        System.out.println("vTrinquemalay,vKarachi ==> " + vDistances[10] + " km");
+        System.out.println("vKarachi,vBahrain ==> " + vDistances[11] + " km");
+        System.out.println("vBahrain,vKhartoum ==> " + vDistances[12] + " km");
+        System.out.println("vKhartoum,vLepoldville ==> " + vDistances[13] + " km");
+        System.out.println("vLepoldville,vNatal ==> " + vDistances[14] + " km");
+        System.out.println("vNatal,vPortDeSpain ==> " + vDistances[15] + " km");
+        System.out.println("vPortDeSpain,vLaGuardiaNewYork ==> " + vDistances[16] + " km");
+        System.out.println("------------------------------------------------------------");
+        
+        double vFirstPart = 0;
+        for(int i=0;i<5;i++){
+            vFirstPart += vDistances[i];
+        }
+        
+        System.out.println("vFirstPart ==> " + vFirstPart + " km");
+        System.out.println("------------------------------------------------------------");
+        
+        double vSecondPart = 0;
+        for(int i=5;i<vDistances.length;i++){
+            vSecondPart += vDistances[i];
+        }
+        
+        System.out.println("vSecondPart ==> " + vSecondPart + " km");
+        System.out.println("------------------------------------------------------------");
+        
+        double vFullVoyage = 0;
+        for(int i=0;i<vDistances.length;i++){
+            vFullVoyage += vDistances[i];
+        }
+        
+        System.out.println("vFullVoyage ==> " + vFullVoyage + " km");
+        System.out.println("------------------------------------------------------------");
+        
+        System.out.println("vFirst + vSecond ==> " + (vFirstPart + vSecondPart)  + " km");
+        System.out.println("------------------------------------------------------------");
         
         return vDistances;
     }
