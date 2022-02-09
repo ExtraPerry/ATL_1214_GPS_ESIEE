@@ -117,7 +117,7 @@ public class Nav {
      */
     static double[] getClipperPath()
     {
-        double[] vTresureIsland = {27.745003,-82.759659};
+        double[] vTresureIsland = {37.82,-122.37};
         double[] vHonolulu = {21.3069444,-157.858333};
         double[] vCanton = {-2.83333,-171.666664};
         double[] vSuva = {-18.1416,178.441895};
